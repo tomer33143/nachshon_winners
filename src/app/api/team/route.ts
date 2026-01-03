@@ -6,12 +6,14 @@ import { Team, User, Poll } from '@/lib/store'; // We will use shared types
 const generateCode = () => Math.random().toString(36).substring(2, 8).toUpperCase();
 
 export async function POST(req: Request) {
+    const isVercel = process.env.VERCEL === '1' || !!process.env.NEXT_PUBLIC_VERCEL_URL;
+
     try {
         const payload = await req.json();
         const db = await getDB();
         const action = payload.action;
 
-        console.log(`[API] Action received: ${action}`);
+        console.log(`[API] Processing: ${action} | Env: ${isVercel ? 'Cloud' : 'Local'}`);
 
         // Action: LOGON (Login)
         if (action === 'login') {

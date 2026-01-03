@@ -1,69 +1,48 @@
 import { Redis } from '@upstash/redis'
 import { readDB as readLocalDB, writeDB as writeLocalDB } from './db'
 
-const getRedisConfig = () => {
-    const url = process.env.UPSTASH_REDIS_REST_URL;
-    const token = process.env.UPSTASH_REDIS_REST_TOKEN;
-    const isVercel = !!process.env.VERCEL;
+// Initialize Redis only if keys are present
+const redis = (process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN)
+    ? new Redis({
+        url: process.env.UPSTASH_REDIS_REST_URL,
+        token: process.env.UPSTASH_REDIS_REST_TOKEN,
+    })
+    : null;
 
-    return {
-        url,
-        token,
-        isConfigured: !!(url && token),
-        isVercel
-    };
-};
+const isVercel = !!process.env.VERCEL;
 
 export async function getDB() {
-    const config = getRedisConfig();
-
-    if (config.isConfigured) {
+    // 1. Try Redis first if available
+    if (redis) {
         try {
-            const redis = new Redis({
-                url: config.url!,
-                token: config.token!,
-            });
             const teams = await redis.get('teams');
-            return { teams: teams || [] };
+            if (teams) return { teams };
         } catch (e) {
-            console.error("Redis fetch error:", e);
-            if (config.isVercel) throw new Error("שגיאה בתקשורת עם מסד הנתונים בענן (Redis error).");
+            console.error("Redis Read Error:", e);
         }
     }
 
-    if (config.isVercel) {
-        // In production without Redis, we can only read what was bundled in db.json
-        console.warn("Vercel detected but Redis is NOT configured. Falling back to static db.json (Read-Only)");
-        return readLocalDB();
-    }
-
+    // 2. Fallback to local DB (works locally, or reads bundled data in production)
     return readLocalDB();
 }
 
 export async function writeDB(db: any) {
-    const config = getRedisConfig();
-
-    if (config.isConfigured) {
+    // 1. Try writing to Redis if available
+    if (redis) {
         try {
-            const redis = new Redis({
-                url: config.url!,
-                token: config.token!,
-            });
             await redis.set('teams', db.teams);
             return;
         } catch (e) {
-            console.error("Redis write error:", e);
-            throw new Error("שגיאה בכתיבה ל-Redis. וודא שההגדרות ב-Upstash תקינות.");
+            console.error("Redis Write Error:", e);
         }
     }
 
-    if (!config.isVercel) {
-        await writeLocalDB(db);
-    } else {
-        const missing = [];
-        if (!process.env.UPSTASH_REDIS_REST_URL) missing.push("URL");
-        if (!process.env.UPSTASH_REDIS_REST_TOKEN) missing.push("TOKEN");
-
-        throw new Error(`שגיאת הגדרה ב-Vercel: חסר מפתח ${missing.join(" ו-")}. אנא וודא שהגדרת אותם תחת Environment Variables וביצעת Redeploy.`);
+    // 2. Fallback to local file ONLY if not on Vercel
+    if (!isVercel) {
+        try {
+            await writeLocalDB(db);
+        } catch (e) {
+            console.error("Local DB Write Error:", e);
+        }
     }
 }

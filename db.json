@@ -1,0 +1,732 @@
+{
+  "teams": [
+    {
+      "id": "15b81dff-4ac3-4b24-8c43-82f763344918",
+      "name": "Beta Squad",
+      "code": "CKN3S1",
+      "members": [
+        {
+          "id": "5d480ff8-b3d9-4efb-8428-9d204e228d69",
+          "name": "Commander Beta",
+          "avatar": "avatar-1",
+          "isAdmin": true,
+          "pointsAnnual": 0,
+          "pointsBiMonthly": 0,
+          "strikes": 0
+        }
+      ],
+      "admins": [
+        "5d480ff8-b3d9-4efb-8428-9d204e228d69"
+      ],
+      "seasonStarted": true
+    },
+    {
+      "id": "345831d8-1f10-4022-835e-e5e0cc475108",
+      "name": "סתם",
+      "code": "FU0V46",
+      "members": [
+        {
+          "id": "dcdaab35-252e-4c62-9b8f-42b2f7a3adb7",
+          "name": "ביבי",
+          "avatar": "avatar-1",
+          "isAdmin": true,
+          "pointsAnnual": 0,
+          "pointsBiMonthly": 0,
+          "strikes": 0
+        },
+        {
+          "id": "71177f19-6f74-4da8-88a6-ae126cbfd765",
+          "name": "נתניהו",
+          "avatar": "avatar-2",
+          "isAdmin": false,
+          "pointsAnnual": 0,
+          "pointsBiMonthly": 0,
+          "strikes": 0
+        }
+      ],
+      "admins": [
+        "dcdaab35-252e-4c62-9b8f-42b2f7a3adb7"
+      ],
+      "seasonStarted": true
+    },
+    {
+      "id": "1efecab9-7d93-450f-87e2-af72ddd436d4",
+      "name": "Sayeret Matkal",
+      "code": "KYS26P",
+      "members": [
+        {
+          "id": "dd6738f8-a069-461f-be52-191a6efb20d4",
+          "name": "אני",
+          "avatar": "1",
+          "role": "creator",
+          "pointsAnnual": 0,
+          "pointsBiMonthly": 0,
+          "strikes": 1,
+          "badges": []
+        }
+      ],
+      "seasonStarted": false,
+      "admins": [
+        "dd6738f8-a069-461f-be52-191a6efb20d4"
+      ],
+      "polls": []
+    },
+    {
+      "id": "5181d4ea-2361-468b-8b51-1bb296ce74b9",
+      "name": "Test Squad 2",
+      "code": "YG3A1G",
+      "members": [
+        {
+          "id": "2955d7ba-c0ab-46e4-8d80-191f1ced1ef2",
+          "name": "UserA",
+          "avatar": "1",
+          "role": "creator",
+          "password": "123",
+          "pointsAnnual": 0,
+          "pointsBiMonthly": 0,
+          "strikes": 1,
+          "badges": []
+        },
+        {
+          "id": "1fc16bc0-b879-4896-bd97-e5de0a2bb424",
+          "name": "UserB",
+          "avatar": "2",
+          "role": "member",
+          "password": "456",
+          "pointsAnnual": 0,
+          "pointsBiMonthly": 0,
+          "strikes": 1,
+          "badges": []
+        }
+      ],
+      "seasonStarted": false,
+      "admins": [
+        "2955d7ba-c0ab-46e4-8d80-191f1ced1ef2"
+      ],
+      "polls": []
+    },
+    {
+      "id": "10f86959-0888-46f1-ab00-e7d03a51c87c",
+      "name": "ggg",
+      "code": "T564P3",
+      "members": [
+        {
+          "id": "65ffbb06-a4e0-4644-91b0-998b7b460790",
+          "name": "עע",
+          "avatar": "1",
+          "role": "creator",
+          "password": "תומר",
+          "pointsAnnual": 0,
+          "pointsBiMonthly": 0,
+          "strikes": 1,
+          "badges": []
+        },
+        {
+          "id": "e17c04c0-7d52-4423-939f-9620b938082c",
+          "name": "iuu",
+          "avatar": "2",
+          "role": "member",
+          "password": "bbb",
+          "pointsAnnual": 0,
+          "pointsBiMonthly": 0,
+          "strikes": 1,
+          "badges": []
+        }
+      ],
+      "seasonStarted": false,
+      "admins": [
+        "65ffbb06-a4e0-4644-91b0-998b7b460790"
+      ],
+      "polls": []
+    },
+    {
+      "id": "b878bacd-4f3a-4183-810b-6fdbe91cd33f",
+      "name": "Elite Squad",
+      "code": "JKAJX2",
+      "members": [
+        {
+          "id": "261d8fe3-3f97-4928-9a4f-471d54a9104b",
+          "name": "Commander",
+          "avatar": "1",
+          "role": "creator",
+          "password": "123",
+          "pointsAnnual": 0,
+          "pointsBiMonthly": 0,
+          "strikes": 1,
+          "badges": []
+        },
+        {
+          "id": "f069d46f-3cdc-4df5-af1d-8f535dd813d0",
+          "name": "Soldier",
+          "avatar": "4",
+          "role": "member",
+          "password": "456",
+          "pointsAnnual": 20,
+          "pointsBiMonthly": 0,
+          "strikes": 1.1,
+          "badges": []
+        },
+        {
+          "id": "10fdc3ec-b9ee-4557-acf0-a3dcd9b43f54",
+          "name": "חחח",
+          "avatar": "4",
+          "role": "member",
+          "password": "טטט",
+          "pointsAnnual": 10,
+          "pointsBiMonthly": 0,
+          "strikes": 1.1,
+          "badges": []
+        }
+      ],
+      "pendingMembers": [],
+      "seasonStarted": true,
+      "admins": [
+        "261d8fe3-3f97-4928-9a4f-471d54a9104b"
+      ],
+      "polls": [
+        {
+          "id": "106006fc-ade9-4617-9ffb-255778926e2b",
+          "question": "היית בפעולה?",
+          "createdAt": "2025-12-30T15:23:39.631Z",
+          "active": true,
+          "responses": [
+            {
+              "userId": "10fdc3ec-b9ee-4557-acf0-a3dcd9b43f54",
+              "userName": "חחח",
+              "response": "yes",
+              "timestamp": "2025-12-30T15:23:46.206Z"
+            },
+            {
+              "userId": "f069d46f-3cdc-4df5-af1d-8f535dd813d0",
+              "userName": "Soldier",
+              "response": "yes",
+              "timestamp": "2025-12-30T15:26:03.362Z"
+            }
+          ],
+          "creatorId": "261d8fe3-3f97-4928-9a4f-471d54a9104b"
+        }
+      ]
+    },
+    {
+      "id": "ae1c844a-42c3-4d60-a87f-ccd513f871cc",
+      "name": "Test Squad 3",
+      "code": "FJ6JH4",
+      "members": [
+        {
+          "id": "df8e5a93-eec4-4ac7-992f-b1193fedbe7e",
+          "name": "Commander3",
+          "avatar": "1",
+          "role": "creator",
+          "password": "123",
+          "pointsAnnual": 0,
+          "pointsBiMonthly": 0,
+          "strikes": 1,
+          "badges": []
+        },
+        {
+          "id": "aaf1f8ac-50ef-4716-8aa5-96cf214db503",
+          "name": "Soldier3",
+          "avatar": "5",
+          "role": "member",
+          "password": "456",
+          "pointsAnnual": 10,
+          "pointsBiMonthly": 0,
+          "strikes": 1,
+          "badges": []
+        },
+        {
+          "id": "75072164-f4ef-40fd-a2b5-2b756f67157c",
+          "name": "חמור",
+          "avatar": "3",
+          "role": "coordinator",
+          "password": "אאא",
+          "pointsAnnual": 0,
+          "pointsBiMonthly": 0,
+          "strikes": 1,
+          "badges": []
+        }
+      ],
+      "pendingMembers": [],
+      "seasonStarted": true,
+      "admins": [
+        "df8e5a93-eec4-4ac7-992f-b1193fedbe7e"
+      ],
+      "polls": []
+    },
+    {
+      "id": "d3aae643-1b70-4ba5-8933-3cfc6ddf99d0",
+      "name": "חחחחח",
+      "code": "5MN6J7",
+      "members": [
+        {
+          "id": "2688fc0b-3a4f-44b8-98c2-4fd9967fd9d4",
+          "name": "שמשון",
+          "avatar": "1",
+          "role": "creator",
+          "password": "אאא",
+          "pointsAnnual": 0,
+          "pointsBiMonthly": 0,
+          "strikes": 1,
+          "badges": []
+        },
+        {
+          "id": "caf81a82-833f-42fc-a54e-b5cc5d84a3ed",
+          "name": "חחח",
+          "avatar": "4",
+          "role": "member",
+          "password": "חחח",
+          "pointsAnnual": 10,
+          "pointsBiMonthly": 0,
+          "strikes": 1.1,
+          "badges": []
+        },
+        {
+          "id": "ba150fb0-a30d-4879-8bd0-c326592a1329",
+          "name": "יאמי",
+          "avatar": "4",
+          "role": "coordinator",
+          "password": "ןןן",
+          "pointsAnnual": 10,
+          "pointsBiMonthly": 0,
+          "strikes": 1.1,
+          "badges": []
+        }
+      ],
+      "pendingMembers": [],
+      "seasonStarted": true,
+      "admins": [
+        "2688fc0b-3a4f-44b8-98c2-4fd9967fd9d4"
+      ],
+      "polls": [
+        {
+          "id": "b071e334-1253-4ae8-9818-fb7438570470",
+          "question": "יש אותנו",
+          "createdAt": "2026-01-02T11:57:05.380Z",
+          "active": true,
+          "responses": [
+            {
+              "userId": "2688fc0b-3a4f-44b8-98c2-4fd9967fd9d4",
+              "userName": "שמשון",
+              "response": "no",
+              "timestamp": "2026-01-02T11:57:07.041Z"
+            },
+            {
+              "userId": "caf81a82-833f-42fc-a54e-b5cc5d84a3ed",
+              "userName": "חחח",
+              "response": "yes",
+              "timestamp": "2026-01-02T11:58:57.088Z"
+            },
+            {
+              "userId": "ba150fb0-a30d-4879-8bd0-c326592a1329",
+              "userName": "יאמי",
+              "response": "yes",
+              "timestamp": "2026-01-02T11:59:34.108Z"
+            }
+          ],
+          "creatorId": "2688fc0b-3a4f-44b8-98c2-4fd9967fd9d4"
+        }
+      ]
+    },
+    {
+      "id": "7c57b6e4-9c54-46f5-8140-eb62ba7682b0",
+      "name": "שימי",
+      "code": "XS5JG8",
+      "members": [
+        {
+          "id": "88f7b272-6720-4d82-b7d7-87549b4c1435",
+          "name": "שימי",
+          "avatar": "1",
+          "role": "creator",
+          "password": "שימי",
+          "pointsAnnual": 0,
+          "pointsBiMonthly": 0,
+          "strikes": 1,
+          "badges": []
+        },
+        {
+          "id": "a5d10c18-4f67-4015-b534-d53abcb0efc0",
+          "name": "6",
+          "avatar": "1",
+          "role": "coordinator",
+          "password": "66",
+          "pointsAnnual": 0,
+          "pointsBiMonthly": 0,
+          "strikes": 1,
+          "badges": []
+        }
+      ],
+      "pendingMembers": [],
+      "seasonStarted": true,
+      "admins": [
+        "88f7b272-6720-4d82-b7d7-87549b4c1435"
+      ],
+      "polls": [
+        {
+          "id": "bd4cbe91-444f-426d-b11e-c02255350c20",
+          "question": "יי",
+          "createdAt": "2026-01-02T12:08:48.840Z",
+          "active": true,
+          "responses": [
+            {
+              "userId": "a5d10c18-4f67-4015-b534-d53abcb0efc0",
+              "userName": "6",
+              "response": "no",
+              "timestamp": "2026-01-02T12:10:15.937Z"
+            }
+          ],
+          "creatorId": "88f7b272-6720-4d82-b7d7-87549b4c1435"
+        }
+      ],
+      "feed": [
+        {
+          "id": "f01d0758-cbfd-47d1-980e-c57a66e65baf",
+          "type": "join",
+          "message": "6 הצטרף/ה לצוות! 🎉",
+          "timestamp": "2026-01-02T12:10:06.985Z",
+          "userId": "a5d10c18-4f67-4015-b534-d53abcb0efc0",
+          "userName": "6"
+        }
+      ],
+      "events": []
+    },
+    {
+      "id": "aba6feb6-c5a9-4865-95c9-5a42c68c844e",
+      "name": "שלומי 6",
+      "code": "1Z8UMA",
+      "members": [
+        {
+          "id": "2d177463-ddbd-4c9d-8eea-21c07a18fbfb",
+          "name": "עע",
+          "avatar": "1",
+          "role": "creator",
+          "password": "6",
+          "pointsAnnual": 0,
+          "pointsBiMonthly": 0,
+          "strikes": 1,
+          "badges": []
+        }
+      ],
+      "pendingMembers": [],
+      "seasonStarted": true,
+      "admins": [
+        "2d177463-ddbd-4c9d-8eea-21c07a18fbfb"
+      ],
+      "polls": [],
+      "feed": [],
+      "events": []
+    },
+    {
+      "id": "b0a2efda-c2ce-4718-ae49-7eb86aad34f6",
+      "name": "ניסין",
+      "code": "AJFI3W",
+      "members": [
+        {
+          "id": "d2df6b0a-70be-4043-a351-f818ccd36091",
+          "name": "חמור",
+          "avatar": "1",
+          "role": "creator",
+          "password": "חמור",
+          "pointsAnnual": 0,
+          "pointsBiMonthly": 0,
+          "strikes": 1,
+          "badges": [],
+          "joinedAt": "2026-01-02T14:01:42.125Z"
+        },
+        {
+          "id": "fd50fd3b-ca6f-4503-b6fe-9065c9aac752",
+          "name": "שש",
+          "avatar": "1",
+          "role": "coordinator",
+          "password": "שש",
+          "pointsAnnual": 0,
+          "pointsBiMonthly": 0,
+          "strikes": 1,
+          "badges": [],
+          "joinedAt": "2026-01-02T14:02:19.661Z"
+        },
+        {
+          "id": "351a77c8-35bc-494d-8c68-a78770f0acb2",
+          "name": "שלומי",
+          "avatar": "1",
+          "role": "coordinator",
+          "password": "6",
+          "pointsAnnual": 0,
+          "pointsBiMonthly": 0,
+          "strikes": 1,
+          "badges": [],
+          "joinedAt": "2026-01-02T14:04:24.700Z"
+        },
+        {
+          "id": "6d148a46-5ba7-4a97-ba06-80b711a5640a",
+          "name": "חח",
+          "avatar": "4",
+          "role": "member",
+          "password": "6",
+          "pointsAnnual": 0,
+          "pointsBiMonthly": 0,
+          "strikes": 1,
+          "badges": [],
+          "joinedAt": "2026-01-02T14:05:59.672Z"
+        }
+      ],
+      "pendingMembers": [],
+      "seasonStarted": true,
+      "admins": [
+        "d2df6b0a-70be-4043-a351-f818ccd36091"
+      ],
+      "polls": [],
+      "feed": [
+        {
+          "id": "fe603544-6bf1-487d-a180-a759264dbf8d",
+          "type": "join",
+          "message": "חח הצטרף/ה לצוות! 🎉",
+          "timestamp": "2026-01-02T14:06:04.310Z",
+          "userId": "6d148a46-5ba7-4a97-ba06-80b711a5640a",
+          "userName": "חח"
+        },
+        {
+          "id": "f8db0cf6-0bd3-47c9-a737-6d388258a008",
+          "type": "join",
+          "message": "שלומי הצטרף/ה לצוות! 🎉",
+          "timestamp": "2026-01-02T14:04:27.548Z",
+          "userId": "351a77c8-35bc-494d-8c68-a78770f0acb2",
+          "userName": "שלומי"
+        },
+        {
+          "id": "eb021b18-2fd8-47ee-86ae-1d8d4050d267",
+          "type": "event",
+          "message": "נקבע אירוע חדש: התנדבות במועדונית בתאריך 2026-01-16 📅",
+          "timestamp": "2026-01-02T14:03:29.451Z"
+        },
+        {
+          "id": "0b0802de-274c-4c8b-9a56-f0d943a7c0bb",
+          "type": "join",
+          "message": "שש הצטרף/ה לצוות! 🎉",
+          "timestamp": "2026-01-02T14:02:23.071Z",
+          "userId": "fd50fd3b-ca6f-4503-b6fe-9065c9aac752",
+          "userName": "שש"
+        }
+      ],
+      "events": []
+    },
+    {
+      "id": "07884abf-5645-4b76-8b83-df3b198f23d7",
+      "name": "חו",
+      "code": "VH560X",
+      "members": [
+        {
+          "id": "0be291f1-3dc3-4535-bd2d-4d279ad0865a",
+          "name": "6",
+          "avatar": "1",
+          "role": "creator",
+          "password": "5678",
+          "pointsAnnual": 0,
+          "pointsBiMonthly": 0,
+          "strikes": 1,
+          "badges": [],
+          "joinedAt": "2026-01-02T14:12:56.921Z"
+        },
+        {
+          "id": "8f4df33d-dcfb-4f4e-a1fb-8b192d8bf641",
+          "name": "גכעי",
+          "avatar": "3",
+          "role": "member",
+          "password": "34567",
+          "pointsAnnual": 0,
+          "pointsBiMonthly": 0,
+          "strikes": 1,
+          "badges": [],
+          "joinedAt": "2026-01-02T14:13:12.369Z"
+        }
+      ],
+      "pendingMembers": [],
+      "seasonStarted": true,
+      "admins": [
+        "0be291f1-3dc3-4535-bd2d-4d279ad0865a"
+      ],
+      "polls": [],
+      "feed": [
+        {
+          "id": "74a91ecc-dfeb-4900-a3f3-4626d072cfa5",
+          "type": "join",
+          "message": "גכעי הצטרף/ה לצוות! 🎉",
+          "timestamp": "2026-01-02T14:13:14.842Z",
+          "userId": "8f4df33d-dcfb-4f4e-a1fb-8b192d8bf641",
+          "userName": "גכעי"
+        }
+      ],
+      "events": []
+    },
+    {
+      "id": "e934d7e3-b17f-4423-9dec-14c8822c65c8",
+      "name": "זדגכעי",
+      "code": "GRQO5I",
+      "members": [
+        {
+          "id": "0d608713-6c94-423f-b9bc-27ffcb24bfc6",
+          "name": "קראטו",
+          "avatar": "1",
+          "role": "creator",
+          "password": "555",
+          "pointsAnnual": 0,
+          "pointsBiMonthly": 0,
+          "strikes": 1,
+          "badges": [],
+          "joinedAt": "2026-01-02T14:15:10.612Z"
+        },
+        {
+          "id": "66525353-5404-4628-8ed1-15a9015d15fc",
+          "name": "דגכעי",
+          "avatar": "3",
+          "role": "member",
+          "password": "3456",
+          "pointsAnnual": 17,
+          "pointsBiMonthly": 0,
+          "strikes": 1,
+          "badges": [],
+          "joinedAt": "2026-01-02T14:15:24.635Z"
+        },
+        {
+          "id": "71ad68d2-2b23-40d9-8fc5-a56480936507",
+          "name": "גכעיח",
+          "avatar": "1",
+          "role": "member",
+          "password": "666",
+          "pointsAnnual": 0,
+          "pointsBiMonthly": 0,
+          "strikes": 1,
+          "badges": [],
+          "joinedAt": "2026-01-02T14:17:12.738Z"
+        }
+      ],
+      "pendingMembers": [],
+      "seasonStarted": true,
+      "admins": [
+        "0d608713-6c94-423f-b9bc-27ffcb24bfc6"
+      ],
+      "polls": [
+        {
+          "id": "4a2cc5c0-42a3-4d0a-b442-33de31d167ad",
+          "question": "הגעתי",
+          "createdAt": "2026-01-02T14:16:36.766Z",
+          "active": false,
+          "responses": [
+            {
+              "userId": "66525353-5404-4628-8ed1-15a9015d15fc",
+              "userName": "דגכעי",
+              "response": "yes",
+              "timestamp": "2026-01-02T14:16:40.630Z"
+            }
+          ],
+          "creatorId": "0d608713-6c94-423f-b9bc-27ffcb24bfc6"
+        },
+        {
+          "id": "16c8633a-25b0-458c-9583-7903b2887106",
+          "question": "ככ",
+          "createdAt": "2026-01-03T15:35:40.734Z",
+          "active": false,
+          "responses": [
+            {
+              "userId": "66525353-5404-4628-8ed1-15a9015d15fc",
+              "userName": "דגכעי",
+              "response": "yes",
+              "timestamp": "2026-01-03T15:35:44.918Z"
+            },
+            {
+              "userId": "71ad68d2-2b23-40d9-8fc5-a56480936507",
+              "userName": "גכעיח",
+              "response": "no",
+              "timestamp": "2026-01-03T15:37:55.419Z"
+            }
+          ],
+          "creatorId": "0d608713-6c94-423f-b9bc-27ffcb24bfc6"
+        },
+        {
+          "id": "44518794-f7eb-48e8-8d40-0b6b27e3faa8",
+          "question": "עטך'",
+          "createdAt": "2026-01-03T15:38:04.510Z",
+          "active": false,
+          "responses": [
+            {
+              "userId": "66525353-5404-4628-8ed1-15a9015d15fc",
+              "userName": "דגכעי",
+              "response": "no",
+              "timestamp": "2026-01-03T15:38:12.907Z"
+            },
+            {
+              "userId": "71ad68d2-2b23-40d9-8fc5-a56480936507",
+              "userName": "גכעיח",
+              "response": "no",
+              "timestamp": "2026-01-03T15:38:15.836Z"
+            }
+          ],
+          "creatorId": "0d608713-6c94-423f-b9bc-27ffcb24bfc6"
+        }
+      ],
+      "feed": [
+        {
+          "id": "728b50b6-1cfd-4496-919b-e360dcf14476",
+          "type": "event",
+          "message": "נקבע אירוע חדש: חשיבה בתאריך 2026-01-27 📅",
+          "timestamp": "2026-01-03T15:48:34.714Z"
+        },
+        {
+          "id": "909f6c51-7b91-43fd-a6f3-463060f0daf5",
+          "type": "points_down",
+          "message": "דגכעי איבד/ה 68 נקודות על: חרא! 📉",
+          "timestamp": "2026-01-02T14:27:59.172Z",
+          "userId": "66525353-5404-4628-8ed1-15a9015d15fc",
+          "userName": "דגכעי"
+        },
+        {
+          "id": "f6f9b63e-5d4d-4c77-8652-96de6d9bd496",
+          "type": "points_up",
+          "message": "דגכעי קיבל/ה 15 נקודות על: חרא! 🌟",
+          "timestamp": "2026-01-02T14:24:12.460Z",
+          "userId": "66525353-5404-4628-8ed1-15a9015d15fc",
+          "userName": "דגכעי"
+        },
+        {
+          "id": "5b11599a-1273-427b-a3e2-45526c3749de",
+          "type": "join",
+          "message": "גכעיח הצטרף/ה לצוות! 🎉",
+          "timestamp": "2026-01-02T14:17:25.512Z",
+          "userId": "71ad68d2-2b23-40d9-8fc5-a56480936507",
+          "userName": "גכעיח"
+        },
+        {
+          "id": "f23dadf7-d681-4625-b473-aa5d485a3b59",
+          "type": "points",
+          "message": "דגכעי איבד/ה 5 נקודות... 😢",
+          "timestamp": "2026-01-02T14:16:27.059Z",
+          "userId": "66525353-5404-4628-8ed1-15a9015d15fc",
+          "userName": "דגכעי"
+        },
+        {
+          "id": "67da4b7d-38d1-4904-b3fa-b58be5d59741",
+          "type": "points",
+          "message": "וואו! דגכעי עלה/תה ב-5 נקודות! 🚀",
+          "timestamp": "2026-01-02T14:16:22.311Z",
+          "userId": "66525353-5404-4628-8ed1-15a9015d15fc",
+          "userName": "דגכעי"
+        },
+        {
+          "id": "f4175fe5-ab81-4393-beef-ac3912a85a4e",
+          "type": "join",
+          "message": "דגכעי הצטרף/ה לצוות! 🎉",
+          "timestamp": "2026-01-02T14:15:27.677Z",
+          "userId": "66525353-5404-4628-8ed1-15a9015d15fc",
+          "userName": "דגכעי"
+        }
+      ],
+      "events": [
+        {
+          "id": "287f0b68-79cf-4e22-8e9d-15963a0e7da5",
+          "title": "חשיבה",
+          "date": "2026-01-27",
+          "isHoliday": false
+        }
+      ]
+    }
+  ]
+}

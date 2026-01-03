@@ -21,10 +21,14 @@ export default function CreateTeamForm({ onBack }: CreateTeamFormProps) {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        if (isSubmitting) return;
         setIsSubmitting(true);
-        // Using "1" as default avatar for now
-        await createTeam(teamName, yourName, password);
-        setIsSubmitting(false);
+        try {
+            await createTeam(teamName, yourName, password);
+            // The Home component should react to user/team being set now
+        } catch (err) {
+            setIsSubmitting(false);
+        }
     };
 
     return (

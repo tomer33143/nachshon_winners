@@ -38,7 +38,10 @@ export default function Lobby() {
 
             <Button
                 variant="ghost"
-                onClick={logout}
+                onClick={() => {
+                    logout();
+                    window.location.href = "/"; // Force full reload to reset all states
+                }}
                 className="text-gray-400 hover:text-red-500"
             >
                 יציאה / ביטול

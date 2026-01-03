@@ -150,14 +150,22 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         try {
             const res = await fetch('/api/team', {
                 method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ action: 'create', teamName, userName, password }),
             });
             const data = await res.json();
+
+            if (data.error) {
+                alert(data.error);
+                return;
+            }
+
             setUser(data.user);
             setTeam(data.team);
             saveLocalAuth(data.user, data.team);
         } catch (e) {
-            console.error(e);
+            console.error("Create team failed:", e);
+            alert("שגיאה ביצירת הצוות. נסה שוב.");
         } finally {
             setIsLoading(false);
         }

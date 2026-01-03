@@ -15,13 +15,16 @@ export async function getDB() {
             const teams = await redis.get('teams');
             return { teams: teams || [] };
         } catch (e) {
-            console.error("Redis error:", e);
-            if (isVercel) return { teams: [] };
+            console.error("Redis fetch error:", e);
+            if (isVercel) throw new Error("שגיאה בתקשורת עם מסד הנתונים בענן.");
         }
     }
 
-    // In Vercel, if Redis fails/missing, we return empty state instead of crashing with file system error
-    if (isVercel) return { teams: [] };
+    if (isVercel && !isRedisEnabled) {
+        // We can still try to read from the static db.json if it exists, 
+        // but no new teams can be saved without Redis.
+        return readLocalDB();
+    }
 
     return readLocalDB();
 }
@@ -33,6 +36,7 @@ export async function writeDB(db: any) {
             return;
         } catch (e) {
             console.error("Redis write error:", e);
+            throw new Error("שגיאה בכתיבה למסד הנתונים בענן. וודא שההגדרות ב-Vercel תקינות.");
         }
     }
 
@@ -40,6 +44,6 @@ export async function writeDB(db: any) {
     if (!isVercel) {
         await writeLocalDB(db);
     } else {
-        console.warn("Skipping writeDB: No Redis configured and environment is Read-Only (Vercel)");
+        throw new Error("לא הוגדר מסד נתונים (Redis) ב-Vercel. לא ניתן לשמור נתונים.");
     }
 }

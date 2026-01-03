@@ -18,8 +18,8 @@ export async function POST(req: Request) {
             const { teamCode, userName, password } = payload;
 
             // Find team by Code (User enters code to find team)
-            const team = db.teams?.find((t: Team) => t.code === teamCode);
-            if (!team) return NextResponse.json({ error: 'Team not found' }, { status: 404 });
+            const team = db.teams?.find((t: Team) => t.code.toUpperCase() === teamCode.toUpperCase());
+            if (!team) return NextResponse.json({ error: 'צוות לא נמצא. וודא שהקוד תקין.' }, { status: 404 });
 
             // Find user in team
             // Case insensitive name check? Let's keep strict for now or normalize
@@ -33,11 +33,11 @@ export async function POST(req: Request) {
                 }
             }
 
-            if (!user) return NextResponse.json({ error: 'User not found' }, { status: 404 });
+            if (!user) return NextResponse.json({ error: 'משתמש לא נמצא בצוות זה' }, { status: 404 });
 
             // Simple password check (In production we'd hash this)
             if (user.password !== password) {
-                return NextResponse.json({ error: 'Invalid password' }, { status: 401 });
+                return NextResponse.json({ error: 'סיסמה שגויה' }, { status: 401 });
             }
 
             return NextResponse.json({ user, team });
@@ -87,9 +87,9 @@ export async function POST(req: Request) {
             const { teamCode, userName, avatar, password } = payload;
             if (!db.teams) db.teams = [];
 
-            const teamIndex = db.teams.findIndex((t: Team) => t.code === teamCode);
+            const teamIndex = db.teams.findIndex((t: Team) => t.code.toUpperCase() === teamCode.toUpperCase());
             if (teamIndex === -1) {
-                return NextResponse.json({ error: 'Team not found' }, { status: 404 });
+                return NextResponse.json({ error: 'קוד צוות לא תקין או שהצוות לא קיים' }, { status: 404 });
             }
 
             // Check if name taken

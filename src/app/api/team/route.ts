@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import { getDB, writeDB } from '@/lib/redis';
 import { Team, User, Poll } from '@/lib/store'; // We will use shared types
 
+export const dynamic = 'force-dynamic';
+
 // --- Helpers ---
 const generateCode = () => Math.random().toString(36).substring(2, 8).toUpperCase();
 

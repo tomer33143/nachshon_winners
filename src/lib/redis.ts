@@ -39,12 +39,21 @@ export async function getDB() {
         try {
             const data = await redis.get(DB_KEY);
             if (data) {
-                // Return parsed object. Upstash may return object or string.
                 const parsed = typeof data === 'string' ? JSON.parse(data) : data;
-                if (parsed && Array.isArray(parsed.teams)) return parsed;
+                if (parsed && Array.isArray(parsed.teams) && parsed.teams.length > 0) {
+                    return parsed;
+                }
+            }
+
+            // If we are here, Redis is empty. Check if we should migrate from local.
+            const localData = await readLocalDB();
+            if (localData && Array.isArray(localData.teams) && localData.teams.length > 0) {
+                console.log(`[DB] Migrating ${localData.teams.length} teams from local to Redis...`);
+                await writeDB(localData);
+                return localData;
             }
         } catch (e) {
-            console.error("[DB] Redis Read Error:", e);
+            console.error("[DB] Redis Read/Migrate Error:", e);
         }
     }
 
@@ -58,9 +67,11 @@ export async function writeDB(db: any) {
     // 1. Sync to Cloud if possible
     if (redis) {
         try {
+            // Use EXPIRE-less set for persistence
             await redis.set(DB_KEY, JSON.stringify(payload));
             console.log(`[DB] Global Sync Success | Teams: ${payload.teams?.length || 0}`);
-            // In Vercel, we only rely on Redis
+
+            // On Vercel, we don't write to local filesystem
             if (isVercel) return;
         } catch (e) {
             console.error("[DB] Redis Write Error:", e);

@@ -13,7 +13,8 @@ export async function POST(req: Request) {
         const db = await getDB();
         const action = payload.action;
 
-        console.log(`[API] Processing: ${action} | Env: ${isVercel ? 'Cloud' : 'Local'}`);
+        const usingRedis = !!(process.env.UPSTASH_REDIS_REST_URL || process.env.REDIS_URL);
+        console.log(`[API] Action: ${action} | Env: ${isVercel ? 'Vercel' : 'Local'} | Redis: ${usingRedis ? 'Active' : 'Missing'}`);
 
         // Action: LOGON (Login)
         if (action === 'login') {

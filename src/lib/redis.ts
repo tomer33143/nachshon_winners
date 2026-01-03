@@ -6,18 +6,32 @@ import { readDB as readLocalDB, writeDB as writeLocalDB } from './db'
  * Prioritizes Redis in production (Vercel) and local file storage otherwise.
  */
 
-const REDIS_URL = process.env.UPSTASH_REDIS_REST_URL;
-const REDIS_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN;
+// Fallback check for different env var names
+const REDIS_URL = process.env.UPSTASH_REDIS_REST_URL || process.env.REDIS_URL;
+const REDIS_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.REDIS_TOKEN;
 const isVercel = !!process.env.VERCEL;
 
 // Global storage key
 const DB_KEY = 'nachshon_global_storage_v1';
 
 // Initializing Redis client
-const redis = (REDIS_URL && REDIS_TOKEN) ? new Redis({
-    url: REDIS_URL!,
-    token: REDIS_TOKEN!,
-}) : null;
+let redis: Redis | null = null;
+if (REDIS_URL && REDIS_TOKEN) {
+    try {
+        redis = new Redis({
+            url: REDIS_URL,
+            token: REDIS_TOKEN,
+        });
+        console.log("✅ [DB] Redis Client Initialized");
+    } catch (e) {
+        console.error("❌ [DB] Redis Init Error:", e);
+    }
+} else {
+    console.warn("⚠️ [DB] Redis credentials missing. Using local fallback.");
+    if (isVercel) {
+        console.error("🚨 CRITICAL: Running on Vercel without Redis. Data will NOT persist across sessions!");
+    }
+}
 
 export async function getDB() {
     // 1. Try to fetch from Redis if configured

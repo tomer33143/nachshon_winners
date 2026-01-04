@@ -176,6 +176,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         try {
             const res = await fetch('/api/team', {
                 method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ action: 'join', teamCode, userName, password }),
             });
 
@@ -222,6 +223,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
             const res = await fetch('/api/team', {
                 method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ action: 'login', teamCode, userName, password }),
             });
 
@@ -249,6 +251,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
         await fetch('/api/team', {
             method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action: 'start_season', teamId: team.id }),
         });
         refreshTeam();
@@ -265,6 +268,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         if (!team) return;
         await fetch('/api/team', {
             method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action: 'update_points', teamId: team.id, targetUserId, points, reason, isPublic })
         });
         refreshTeam();
@@ -274,6 +278,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         if (!team) return;
         await fetch('/api/team', {
             method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action: 'manage_role', teamId: team.id, targetUserId, newRole })
         });
         refreshTeam();
@@ -283,6 +288,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         if (!team || !user) return;
         await fetch('/api/team', {
             method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action: 'create_poll', teamId: team.id, creatorId: user.id, question })
         });
         refreshTeam();
@@ -292,6 +298,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         if (!team || !user) return;
         await fetch('/api/team', {
             method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action: 'answer_poll', teamId: team.id, pollId, userId: user.id, answer })
         });
         refreshTeam();
@@ -301,6 +308,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         if (!team) return;
         await fetch('/api/team', {
             method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action: 'close_poll', teamId: team.id, pollId })
         });
         refreshTeam();
@@ -310,6 +318,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         if (!team) return;
         await fetch('/api/team', {
             method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action: 'approve_member', teamId: team.id, targetUserId })
         });
         refreshTeam();
@@ -319,6 +328,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         if (!team) return;
         await fetch('/api/team', {
             method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action: 'reject_member', teamId: team.id, targetUserId })
         });
         refreshTeam();
@@ -328,6 +338,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         if (!team) return;
         await fetch('/api/team', {
             method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action: 'add_event', teamId: team.id, date, title })
         });
         refreshTeam();
@@ -337,6 +348,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         if (!team) return;
         await fetch('/api/team', {
             method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action: 'delete_event', teamId: team.id, eventId })
         });
         refreshTeam();
@@ -346,6 +358,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         if (!team) return;
         await fetch('/api/team', {
             method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action: 'remove_member', teamId: team.id, targetUserId })
         });
         refreshTeam();

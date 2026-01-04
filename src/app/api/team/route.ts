@@ -7,12 +7,28 @@ export const dynamic = 'force-dynamic';
 // --- Helpers ---
 const generateCode = () => Math.random().toString(36).substring(2, 8).toUpperCase();
 
+function normalizeUser(user: any): User {
+    if (!user) return user;
+    return {
+        ...user,
+        role: user.role || (user.isAdmin ? "creator" : "member"),
+        avatar: user.avatar || "1",
+        pointsAnnual: user.pointsAnnual || 0,
+        pointsBiMonthly: user.pointsBiMonthly || 0,
+        strikes: user.strikes || 1,
+        maxStreak: user.maxStreak || user.strikes || 1,
+        badges: user.badges || [],
+        password: user.password || ""
+    };
+}
+
 export async function POST(req: Request) {
     const isVercel = process.env.VERCEL === '1' || !!process.env.NEXT_PUBLIC_VERCEL_URL;
 
     try {
         const payload = await req.json();
         const db = await getDB();
+        if (!db.teams) db.teams = [];
         const action = payload.action;
 
         const usingRedis = !!(process.env.UPSTASH_REDIS_REST_URL || process.env.REDIS_URL);
@@ -41,11 +57,18 @@ export async function POST(req: Request) {
             if (!user) return NextResponse.json({ error: 'משתמש לא נמצא בצוות זה' }, { status: 404 });
 
             // Simple password check (In production we'd hash this)
-            if (user.password !== password) {
+            if (user.password && user.password !== password) {
                 return NextResponse.json({ error: 'סיסמה שגויה' }, { status: 401 });
             }
 
-            return NextResponse.json({ user, team });
+            return NextResponse.json({
+                user: normalizeUser(user),
+                team: {
+                    ...team,
+                    members: team.members.map(normalizeUser),
+                    pendingMembers: (team.pendingMembers || []).map(normalizeUser)
+                }
+            });
         }
 
         // Action: CREATE
@@ -460,5 +483,13 @@ export async function GET(req: Request) {
     const team = db.teams?.find((t: Team) => t.id === teamId);
 
     if (!team) return NextResponse.json({ error: 'Team not found' }, { status: 404 });
-    return NextResponse.json({ team });
+
+    // Normalize team data before sending
+    const normalizedTeam = {
+        ...team,
+        members: team.members.map(normalizeUser),
+        pendingMembers: (team.pendingMembers || []).map(normalizeUser)
+    };
+
+    return NextResponse.json({ team: normalizedTeam });
 }

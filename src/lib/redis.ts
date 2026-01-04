@@ -34,13 +34,14 @@ if (REDIS_URL && REDIS_TOKEN) {
 }
 
 export async function getDB() {
-    // 1. Try to fetch from Redis if configured
+    // 1. Prioritize Redis (Global Cloud Storage)
     if (redis) {
         try {
             const data = await redis.get(DB_KEY);
             if (data) {
                 const parsed = typeof data === 'string' ? JSON.parse(data) : data;
-                if (parsed && Array.isArray(parsed.teams) && parsed.teams.length > 0) {
+                if (parsed && Array.isArray(parsed.teams)) {
+                    console.log(`✅ [DB] Data fetched from Redis (${parsed.teams.length} teams)`);
                     return parsed;
                 }
             }
@@ -48,42 +49,44 @@ export async function getDB() {
             // If we are here, Redis is empty. Check if we should migrate from local.
             const localData = await readLocalDB();
             if (localData && Array.isArray(localData.teams) && localData.teams.length > 0) {
-                console.log(`[DB] Migrating ${localData.teams.length} teams from local to Redis...`);
+                console.log(`🚀 [DB] Migrating ${localData.teams.length} teams from local to Redis...`);
                 await writeDB(localData);
                 return localData;
             }
         } catch (e) {
-            console.error("[DB] Redis Read/Migrate Error:", e);
+            console.error("❌ [DB] Redis Fetch/Migrate Error:", e);
         }
     }
 
-    // 2. Local Fallback (Dev mode or missing Redis)
+    // 2. Local Fallback (Only if Redis is unavailable or fails)
+    console.warn("⚠️ [DB] Falling back to local storage (db.json)");
     return readLocalDB();
 }
 
 export async function writeDB(db: any) {
     const payload = db || { teams: [] };
 
-    // 1. Sync to Cloud if possible
+    // 1. Always try to Sync to Cloud (Redis)
     if (redis) {
         try {
-            // Use EXPIRE-less set for persistence
             await redis.set(DB_KEY, JSON.stringify(payload));
-            console.log(`[DB] Global Sync Success | Teams: ${payload.teams?.length || 0}`);
+            console.log(`☁️ [DB] Global Sync Success | Teams: ${payload.teams?.length || 0}`);
 
-            // On Vercel, we don't write to local filesystem
-            if (isVercel) return;
+            // In theory, if we are using Redis, we don't strictly need local sync, 
+            // but keeping it for safety in dev mode doesn't hurt.
         } catch (e) {
-            console.error("[DB] Redis Write Error:", e);
+            console.error("❌ [DB] Redis Write Error:", e);
         }
     }
 
-    // 2. Local Sync (Development only)
+    // 2. Always Sync to Local (For backup and local dev visibility)
+    // We only skip this on Vercel production to avoid "read-only filesystem" errors
     if (!isVercel) {
         try {
             await writeLocalDB(payload);
+            console.log(`💾 [DB] Local backup updated`);
         } catch (e) {
-            console.error("[DB] Local Write Error:", e);
+            console.error("❌ [DB] Local Write Error:", e);
         }
     }
 }
